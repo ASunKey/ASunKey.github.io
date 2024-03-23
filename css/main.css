@@ -41,12 +41,6 @@
   margin-top: 2.4rem;
   margin-bottom: 2.4rem;
 }
-@font-face {
-  font-family: 'LXGW WenKai Screen';
-  src: url("/font/LXGWWenKaiScreen.ttf");
-  font-weight: normal;
-  font-style: normal;
-}
 :root {
   --theme-link: #2094f3;
 }
