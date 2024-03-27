@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>善启</title>
+  
+  <subtitle>细致阅读●深入思考●笃定践行</subtitle>
+  <link href="https://asunkey.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://asunkey.github.io/"/>
+  <updated>2024-03-26T07:27:48.511Z</updated>
+  <id>https://asunkey.github.io/</id>
+  
+  <author>
+    <name>ASunKey</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hexo及主题的使用和修改</title>
+    <link href="https://asunkey.github.io/2024/0321/Using-and-Modifying-Hexo/"/>
+    <id>https://asunkey.github.io/2024/0321/Using-and-Modifying-Hexo/</id>
+    <published>2024-03-20T16:00:00.000Z</published>
+    <updated>2024-03-26T07:27:48.511Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="关掉-hexo-自带的代码高亮"><a href="#关掉-hexo-自带的代码高亮" class="headerlink" title="关掉 hexo 自带的代码高亮"></a>关掉 hexo 自带的代码高亮</h2><p>主题内置了主题高亮，所以需要禁用 hexo 自带的高亮<br>我使用的hexo版本是7.0.0+</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># _config.yml</span></span><br><span class="line"><span class="attr">syntax_highlighter:</span>  <span class="comment"># empty</span></span><br></pre></td></tr></table></figure><p>配置主题下<code>_config.yml</code>中的高亮设置：<br>可以根据提示，配置喜欢的高亮主题</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"></span><br></pre></td></tr></table></figure><h2 id="分类排序"><a href="#分类排序" class="headerlink" title="分类排序"></a>分类排序</h2><p>默认按照首字母正序排序，由于中文在 <code>nodejs</code> 环境下不能按照拼音首字母排序，所以添加了自定义排序方式，在主题下 <code>_config.yml</code> 中找到如下配置，<code>category.sort</code>则是定义分类顺序的。</p><p><strong>规则：</strong>在 <code>sort</code>中定义的 <code>category</code> 比 没有在 <code>sort</code> 中定义的更靠前</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 文章分类设置</span></span><br><span class="line"><span class="attr">category:</span></span><br><span class="line">  <span class="attr">num:</span> <span class="literal">true</span> <span class="comment"># 分类显示文章数</span></span><br><span class="line">  <span class="attr">sub:</span> <span class="literal">true</span> <span class="comment"># 开启多级分类</span></span><br><span class="line">  <span class="attr">sort:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">读书</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">大前端</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">后端</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">数据库</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">工具</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">运维</span></span><br><span class="line"></span><br></pre></td></tr></table></figure><h2 id="文章排序"><a href="#文章排序" class="headerlink" title="文章排序"></a>文章排序</h2><p>文章列表默认按照创建时间（如下文章内定义的<code>date</code>）倒序。</p><p>使用 <code>top</code> 将会置顶文章，多个置顶文章时，<code>top</code> 定义的值越大，越靠前。</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">每天一个linux命令</span></span><br><span class="line"><span class="attr">date:</span> <span class="number">2017-01-23 11:41:48</span></span><br><span class="line"><span class="attr">top:</span> <span class="number">1</span></span><br><span class="line"><span class="attr">categories:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">运维</span></span><br><span class="line"><span class="attr">tags:</span></span><br><span class="line"><span class="bullet">-</span> <span class="string">linux命令</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure><h2 id="关于写文章"><a href="#关于写文章" class="headerlink" title="关于写文章"></a>关于写文章</h2><p>每篇文章最好写上文集和标签，方便筛选和查看。<br>一般推荐一篇文章设置一个文集，一个或多个标签<br><code>categories</code>:文集，为左侧列表<br><code>tags</code>:标签，通过#来筛选<br>例如 本篇文章的设置</p><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: 3-hexo使用说明</span><br><span class="line">date: 2017-03-23 15:13:47</span><br><span class="line">categories:</span><br><span class="line"><span class="bullet">-</span> 工具</span><br><span class="line">tags:</span><br><span class="line"><span class="bullet">-</span> hexo</span><br><span class="line"><span class="section">- 3-hexo</span></span><br><span class="line"><span class="section">---</span></span><br></pre></td></tr></table></figure><h2 id="设置模板"><a href="#设置模板" class="headerlink" title="设置模板"></a>设置模板</h2><p>1.设置模板，blog根目录 <code>scaffolds/post.md</code><br>加入categories,tags等，这样以后通过 <code>hexo new</code> 生成的模板就不用写这两个单词了。<br>当然，你也可以写入任何你每个文章中都会有的部分。</p><figure class="highlight md"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: &#123;&#123; title &#125;&#125;</span><br><span class="line">date: &#123;&#123; date &#125;&#125;</span><br><span class="line">categories:</span><br><span class="line"><span class="section">tags:</span></span><br><span class="line"><span class="section">---</span></span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;关掉-hexo-自带的代码高亮&quot;&gt;&lt;a href=&quot;#关掉-hexo-自带的代码高亮&quot; class=&quot;headerlink&quot; title=&quot;关掉 hexo 自带的代码高亮&quot;&gt;&lt;/a&gt;关掉 hexo 自带的代码高亮&lt;/h2&gt;&lt;p&gt;主题内置了主题高亮，所以需要禁用 h</summary>
+      
+    
+    
+    
+    <category term="经验SOP" scheme="https://asunkey.github.io/categories/%E7%BB%8F%E9%AA%8CSOP/"/>
+    
+    
+    <category term="Hexo" scheme="https://asunkey.github.io/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>钱财自足</title>
+    <link href="https://asunkey.github.io/2024/0320/01Financial-Self-sufficiency/"/>
+    <id>https://asunkey.github.io/2024/0320/01Financial-Self-sufficiency/</id>
+    <published>2024-03-20T07:31:00.000Z</published>
+    <updated>2024-03-23T11:06:08.205Z</updated>
+    
+    
+    
+    
+    <category term="钱财自足" scheme="https://asunkey.github.io/categories/%E9%92%B1%E8%B4%A2%E8%87%AA%E8%B6%B3/"/>
+    
+    
+    <category term="索引页" scheme="https://asunkey.github.io/tags/%E7%B4%A2%E5%BC%95%E9%A1%B5/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>时间自由</title>
+    <link href="https://asunkey.github.io/2024/0320/02Time-Freedom/"/>
+    <id>https://asunkey.github.io/2024/0320/02Time-Freedom/</id>
+    <published>2024-03-20T07:31:00.000Z</published>
+    <updated>2024-03-23T11:06:32.320Z</updated>
+    
+    
+    
+    
+    <category term="时间自由" scheme="https://asunkey.github.io/categories/%E6%97%B6%E9%97%B4%E8%87%AA%E7%94%B1/"/>
+    
+    
+    <category term="索引页" scheme="https://asunkey.github.io/tags/%E7%B4%A2%E5%BC%95%E9%A1%B5/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>心神自在</title>
+    <link href="https://asunkey.github.io/2024/0320/03Peace-of-Mind/"/>
+    <id>https://asunkey.github.io/2024/0320/03Peace-of-Mind/</id>
+    <published>2024-03-20T07:31:00.000Z</published>
+    <updated>2024-03-23T11:06:24.002Z</updated>
+    
+    
+    
+    
+    <category term="心神自在" scheme="https://asunkey.github.io/categories/%E5%BF%83%E7%A5%9E%E8%87%AA%E5%9C%A8/"/>
+    
+    
+    <category term="索引页" scheme="https://asunkey.github.io/tags/%E7%B4%A2%E5%BC%95%E9%A1%B5/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>我的电子阅读史</title>
+    <link href="https://asunkey.github.io/2024/0320/electronic-reading-history/"/>
+    <id>https://asunkey.github.io/2024/0320/electronic-reading-history/</id>
+    <published>2024-03-20T07:31:00.000Z</published>
+    <updated>2024-03-23T11:11:52.112Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="电子阅读时间"><a href="#电子阅读时间" class="headerlink" title="电子阅读时间"></a>电子阅读时间</h2><ul><li>电子阅读时间</li><li>Kindle</li><li>得到总时长：2286小时</li><li>多看：1428小时</li><li>微信读书：1383小时</li><li>微信听书：166小时，还有其他音频APP上面也主要是听书吧。</li><li></li></ul><h2 id="听书模式"><a href="#听书模式" class="headerlink" title="听书模式"></a>听书模式</h2><p> 听书是可以练习的，只是输入方式不同而已，可以听 那种整本的书，<br>  但像得到的30分钟听书，这类的，只是花钱和时间买书籍推荐而已，不要听。</p><ul><li>还有 故事类的 可以全转为听书，这样可以解放双眼，通勤时，开车时，干家务时，都可以听。</li></ul><p><a href="#%E7%94%B5%E5%AD%90%E9%98%85%E8%AF%BB%E6%97%B6%E9%97%B4">本文档链接</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;电子阅读时间&quot;&gt;&lt;a href=&quot;#电子阅读时间&quot; class=&quot;headerlink&quot; title=&quot;电子阅读时间&quot;&gt;&lt;/a&gt;电子阅读时间&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;电子阅读时间&lt;/li&gt;
+&lt;li&gt;Kindle&lt;/li&gt;
+&lt;li&gt;得到总时长：2286小时&lt;/li</summary>
+      
+    
+    
+    
+    <category term="未归类" scheme="https://asunkey.github.io/categories/%E6%9C%AA%E5%BD%92%E7%B1%BB/"/>
+    
+    
+    <category term="无签" scheme="https://asunkey.github.io/tags/%E6%97%A0%E7%AD%BE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>听（Listening）、说（Speaking）、读（Reading）、写（Writing）</title>
+    <link href="https://asunkey.github.io/2024/0320/listening-speaking-reading-writing/"/>
+    <id>https://asunkey.github.io/2024/0320/listening-speaking-reading-writing/</id>
+    <published>2024-03-20T07:31:00.000Z</published>
+    <updated>2024-03-26T07:28:03.813Z</updated>
+    
+    <content type="html"><![CDATA[<p>细致阅读●深入思考●笃定践行</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;细致阅读●深入思考●笃定践行&lt;/p&gt;
+</summary>
+      
+    
+    
+    
+    <category term="听说读写" scheme="https://asunkey.github.io/categories/%E5%90%AC%E8%AF%B4%E8%AF%BB%E5%86%99/"/>
+    
+    
+    <category term="索引页" scheme="https://asunkey.github.io/tags/%E7%B4%A2%E5%BC%95%E9%A1%B5/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>梦想与现实的平衡</title>
+    <link href="https://asunkey.github.io/2024/0320/memo-for-upcoming-post/"/>
+    <id>https://asunkey.github.io/2024/0320/memo-for-upcoming-post/</id>
+    <published>2024-03-20T04:00:00.000Z</published>
+    <updated>2024-03-23T11:05:58.836Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="备忘录：即将到来的博客文章"><a href="#备忘录：即将到来的博客文章" class="headerlink" title="备忘录：即将到来的博客文章"></a>备忘录：即将到来的博客文章</h1><ul><li>主题：梦想与现实的平衡</li><li>关键词：梦想, 现实, 平衡</li><li>想法：<ul><li>讨论梦想的重要性</li><li>分析现实对梦想的影响</li><li>提供实现梦想与现实平衡的策略</li></ul></li></ul><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ul><li><a href="http://example.com/">链接到相关文章或研究</a></li><li><a href="http://example.org/">引用的书籍或论文</a></li></ul><h2 id="待办事项"><a href="#待办事项" class="headerlink" title="待办事项"></a>待办事项</h2><ul><li><input disabled="" type="checkbox"> 完成对相关研究的阅读</li><li><input checked="" disabled="" type="checkbox"> 撰写文章草稿</li><li><input disabled="" type="checkbox"> 添加必要的图表或图片</li></ul>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h1 id=&quot;备忘录：即将到来的博客文章&quot;&gt;&lt;a href=&quot;#备忘录：即将到来的博客文章&quot; class=&quot;headerlink&quot; title=&quot;备忘录：即将到来的博客文章&quot;&gt;&lt;/a&gt;备忘录：即将到来的博客文章&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;主题：梦想与现实的平衡&lt;/li&gt;
+&lt;li</summary>
+      
+    
+    
+    
+    <category term="未归类" scheme="https://asunkey.github.io/categories/%E6%9C%AA%E5%BD%92%E7%B1%BB/"/>
+    
+    <category term="备忘录" scheme="https://asunkey.github.io/categories/%E6%9C%AA%E5%BD%92%E7%B1%BB/%E5%A4%87%E5%BF%98%E5%BD%95/"/>
+    
+    
+    <category term="梦想" scheme="https://asunkey.github.io/tags/%E6%A2%A6%E6%83%B3/"/>
+    
+    <category term="现实" scheme="https://asunkey.github.io/tags/%E7%8E%B0%E5%AE%9E/"/>
+    
+    <category term="个人发展" scheme="https://asunkey.github.io/tags/%E4%B8%AA%E4%BA%BA%E5%8F%91%E5%B1%95/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>设置站点框架与主题的说明</title>
+    <link href="https://asunkey.github.io/2024/0101/setting-framework-and-theme/"/>
+    <id>https://asunkey.github.io/2024/0101/setting-framework-and-theme/</id>
+    <published>2023-12-31T16:00:02.000Z</published>
+    <updated>2024-03-26T10:43:54.430Z</updated>
+    
+    <content type="html"><![CDATA[<p>更多关于 Hexo 文件的配置请移步官方文档</p><div class="tag-plugin link dis-select"><a class="link-card plain" title="" href="https://hexo.io/zh-cn/docs/configuration" target="_blank" rel="external nofollow noopener noreferrer" cardlink autofill="title,icon"><div class="left"><span class="title">https://hexo.io/zh-cn/docs/configuration</span><span class="cap link footnote">https://hexo.io/zh-cn/docs/configuration</span></div><div class="right"><div class="lazy img" data-bg="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/link/8f277b4ee0ecd.svg"></div></div></a></div><p>更多关于 Stellar 文件的配置请移步官方文档</p><div class="tag-plugin link dis-select"><a class="link-card plain" title="" href="https://xaoxuu.com/wiki/stellar/" target="_blank" rel="external nofollow noopener noreferrer" cardlink autofill="title,icon"><div class="left"><span class="title">https://xaoxuu.com/wiki/stellar/</span><span class="cap link footnote">https://xaoxuu.com/wiki/stellar/</span></div><div class="right"><div class="lazy img" data-bg="https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/link/8f277b4ee0ecd.svg"></div></div></a></div>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;更多关于 Hexo 文件的配置请移步官方文档&lt;/p&gt;
+&lt;div class=&quot;tag-plugin link dis-select&quot;&gt;&lt;a class=&quot;link-card plain&quot; title=&quot;&quot; href=&quot;https://hexo.io/zh-cn/docs/c</summary>
+      
+    
+    
+    
+    <category term="经验SOP" scheme="https://asunkey.github.io/categories/%E7%BB%8F%E9%AA%8CSOP/"/>
+    
+    
+    <category term="Hexo" scheme="https://asunkey.github.io/tags/Hexo/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="https://asunkey.github.io/2024/0101/hello-world/"/>
+    <id>https://asunkey.github.io/2024/0101/hello-world/</id>
+    <published>2023-12-31T16:00:01.000Z</published>
+    <updated>2024-03-23T11:05:42.938Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p><h2 id="中文指南"><a href="#中文指南" class="headerlink" title="中文指南"></a>中文指南</h2><p>使用Hexo建立个人博客是一个流行的选择，因为它简单、高效，且拥有丰富的主题和插件。以下是使用Hexo建站的一个基本记录，涵盖了从安装到部署的整个过程。</p><h3 id="1-安装Node-js和Git"><a href="#1-安装Node-js和Git" class="headerlink" title="1. 安装Node.js和Git"></a>1. 安装Node.js和Git</h3><p>在开始使用Hexo之前，确保你的计算机上安装了Node.js和Git。Node.js是一个JavaScript运行环境，而Git是一个版本控制系统，它们对于Hexo的安装和使用至关重要。</p><h3 id="2-安装Hexo"><a href="#2-安装Hexo" class="headerlink" title="2. 安装Hexo"></a>2. 安装Hexo</h3><p>通过npm（Node.js的包管理器）来安装Hexo。在终端或命令提示符中输入以下命令：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g hexo-cli</span><br></pre></td></tr></table></figure><p>这将全局安装Hexo命令行界面（CLI）。</p><h3 id="3-创建新的Hexo网站"><a href="#3-创建新的Hexo网站" class="headerlink" title="3. 创建新的Hexo网站"></a>3. 创建新的Hexo网站</h3><p>使用以下命令创建一个新的Hexo网站：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo init my-blog</span><br><span class="line"><span class="built_in">cd</span> my-blog</span><br><span class="line">npm install</span><br></pre></td></tr></table></figure><p>这将创建一个新的文件夹<code>my-blog</code>，其中包含Hexo网站的所有基础文件，并安装所有必需的依赖项。</p><h3 id="4-选择主题"><a href="#4-选择主题" class="headerlink" title="4. 选择主题"></a>4. 选择主题</h3><p>Hexo有许多免费和付费的主题可供选择。你可以在<a href="https://hexo.io/themes/">Hexo主题列表</a>中挑选一个你喜欢的主题。下载主题后，将其解压到<code>my-blog/themes</code>目录下。</p><h3 id="5-配置网站"><a href="#5-配置网站" class="headerlink" title="5. 配置网站"></a>5. 配置网站</h3><p>在<code>my-blog/_config.yml</code>文件中，你可以配置网站的基本信息，如标题、描述、语言等。同时，你还可以在这个文件中配置主题、插件和其他高级设置。</p><h3 id="6-添加文章"><a href="#6-添加文章" class="headerlink" title="6. 添加文章"></a>6. 添加文章</h3><p>在<code>my-blog/_posts</code>目录下创建Markdown文件来添加新的文章。文件名格式通常为<code>YYYY-MM-DD-title.md</code>。</p><h3 id="7-生成静态文件"><a href="#7-生成静态文件" class="headerlink" title="7. 生成静态文件"></a>7. 生成静态文件</h3><p>在本地预览你的网站之前，需要生成静态文件。使用以下命令：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo generate</span><br></pre></td></tr></table></figure><h3 id="8-本地预览"><a href="#8-本地预览" class="headerlink" title="8. 本地预览"></a>8. 本地预览</h3><p>在生成静态文件后，你可以通过以下命令在本地预览你的网站：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server</span><br></pre></td></tr></table></figure><p>这将启动一个本地服务器，你可以在浏览器中输入<code>http://localhost:4000</code>来查看你的网站。</p><h3 id="9-部署到远程服务器"><a href="#9-部署到远程服务器" class="headerlink" title="9. 部署到远程服务器"></a>9. 部署到远程服务器</h3><p>Hexo支持多种部署方式，包括GitHub Pages、Heroku、AWS等。你需要在<code>_config.yml</code>文件中配置部署信息。例如，对于GitHub Pages，你需要添加以下配置：</p><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repository:</span> <span class="string">https://github.com/your-username/your-username.github.io.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">main</span></span><br></pre></td></tr></table></figure><p>然后，使用以下命令部署你的网站：</p><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo deploy</span><br></pre></td></tr></table></figure><h3 id="10-持续更新和维护"><a href="#10-持续更新和维护" class="headerlink" title="10. 持续更新和维护"></a>10. 持续更新和维护</h3><p>建立博客后，定期添加新内容、更新旧文章，并根据需要调整配置和主题。同时，保持对Hexo和相关技术的关注，以便及时更新和维护你的网站。</p><p>这就是使用Hexo建立个人博客的基本记录。随着你对Hexo的深入了解，你将能够利用其强大的功能来定制和优化你的博客。</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for</summary>
+      
+    
+    
+    
+    <category term="经验SOP" scheme="https://asunkey.github.io/categories/%E7%BB%8F%E9%AA%8CSOP/"/>
+    
+    
+    <category term="Hexo" scheme="https://asunkey.github.io/tags/Hexo/"/>
+    
+  </entry>
+  
+</feed>
